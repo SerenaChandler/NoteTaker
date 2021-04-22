@@ -19,10 +19,17 @@ module.exports = (app) => {
 
 
     app.post('/api/notes', (req, res) => {
-          currentNotes.push(req.body);})
+          currentNotes.push(req.body);
+          updateJson();
+        })
 
 
-
+    function updateJson() {
+        fs.writeFile("db/db.json",JSON.stringify(currentNotes,'\t'),err => {
+            if (err) throw err;
+            return true;
+        })
+    }
 
 
     })}
