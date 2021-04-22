@@ -5,7 +5,7 @@ Make a program that takes in user input, and saves it as notes. Clicking on the 
 
 ## Deployed Link
 
-[NoteTaker](https://tranquil-dawn-13119.herokuapp.com/notes)
+[NoteTaker](https://tranquil-dawn-13119.herokuapp.com)
 
 ## Example Image
 
