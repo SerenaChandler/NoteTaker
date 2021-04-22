@@ -21,6 +21,7 @@ module.exports = (app) => {
     app.post('/api/notes', (req, res) => {
           currentNotes.push(req.body);
           updateJson();
+          location.reload();
         })
 
 
