@@ -19,22 +19,26 @@ module.exports = (app) => {
 
 
     app.post('/api/notes', (req, res) => {
-          currentNotes.push(req.body);
-          updateJson();
-          location.reload();
-        })
+          var newNote = req.body  
+          var id = 0
+          for (var i = 0; i < currentNotes.length; i++){
+              var noteId = currentNotes[i]
+              if (noteId.id > id){
+                  id = noteId.id
+              }
+          }
+          newNote.id = id + 1
 
-
-    app.get("/api/notes/:id", function(req, res) {
-        res.json(currentNotes[req.params.id])})
-
-
-    function updateJson() {
-        fs.writeFile("db/db.json",JSON.stringify(currentNotes,'\t'),err => {
+        
+          currentNotes.push(newNote);
+          fs.writeFile("db/db.json",JSON.stringify(currentNotes,'\t'),err => {
             if (err) throw err;
-            return true;
+           return true
         })
-    }
+          location.reload()
+        })
+
+
 
 
 
