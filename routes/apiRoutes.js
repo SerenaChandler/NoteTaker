@@ -24,12 +24,18 @@ module.exports = (app) => {
         })
 
 
+    app.get("/api/notes/:id", function(req, res) {
+        res.json(currentNotes[req.params.id])})
+
+
     function updateJson() {
         fs.writeFile("db/db.json",JSON.stringify(currentNotes,'\t'),err => {
             if (err) throw err;
             return true;
         })
     }
+
+
 
 
     })}
