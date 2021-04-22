@@ -18,10 +18,8 @@ app.get("/notes", function(req, res) {
 res.sendFile(path.join(__dirname, "/public/notes.html"));
 });
 
-app.get("/api/notes", function(req, res){
-  return res.sendFile(path.json(__dirname, "db.json"))
-})
 
+require('./routes/apiRoutes')(app);
 
 
 
